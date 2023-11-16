@@ -1,0 +1,38 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    /**
+     * Add seed commands here.
+     *
+     * Example:
+     * await queryInterface.bulkInsert('People', [{
+     *   name: 'John Doe',
+     *   isBetaMember: false
+     * }], {});
+    */
+    await queryInterface.bulkInsert('SocialMedia', [
+      {
+        name: 'Facebook',
+        social_media_url: 'https://www.instagram.com/lufamiko',
+        UserId: 1,
+      },
+      {
+        name: 'Twitter',
+        social_media_url: 'https://twitter.com/lufamiko',
+        UserId: 1,
+      },
+    ], {});
+  },
+
+  async down(queryInterface, Sequelize) {
+    /**
+     * Add commands to revert seed here.
+     *
+     * Example:
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+    await queryInterface.bulkDelete('Socialmedia', null, {});
+  }
+};
